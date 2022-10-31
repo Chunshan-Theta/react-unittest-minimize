@@ -2,7 +2,7 @@ name: Build & test
 on:
   push:
     tags:
-      - ci
+      - ci*
 
 jobs:
   install-dependencies:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-          node-version: 16.10.0
+#       - uses: actions/setup-node@v3
+#         with:
+#           cache: 'yarn'
+#           node-version: 16.10.0
       - uses: bahmutov/npm-install@v1.8.25
         with: { useRollingCache: true } # recommended for large projects
         env:
